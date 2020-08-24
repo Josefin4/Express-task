@@ -1,0 +1,27 @@
+
+[ 
+ { 
+    "id": "1",
+     "name": "Fishy", 
+     "location": "Stockholmsvägen 35", 
+     "description": "Cozy place that serves a lot of seafood",
+     "img": "seafood.jpg",
+     "averagerating": "4/5"
+  },
+  { 
+    "id": "2",
+     "name": "McDonalds", 
+     "location": "Roslagsgatan 2", 
+     "description": "Just like any other McDonalds",
+     "img": "mcdonalds.jpg",
+     "averagerating": "3/5"
+  },
+  { 
+    "id": "3",
+     "name": "Veganista", 
+     "location": "Unicorn street 3", 
+     "description": "Best vegan place in town",
+     "img": "vegan.jpg",
+     "averagerating": "4/5"
+  } 
+] 

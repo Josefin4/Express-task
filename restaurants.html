@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Express</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/lux/bootstrap.min.css"
+        integrity="sha384-9+PGKSqjRdkeAU7Eu4nkJU8RFaH8ace8HGXnkiKMP9I9Te0GJ4/km3L1Z8tXigpG" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/restaurants">Restaurants</a>
+                </li>
+                <li>
+                    <a href="data">Data file</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="jumbotron container text-center">
+        <p id="getData"></p>
+    </div>
+
+    <script>
+        fetch('http://localhost:8080/data')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                appendData(data);
+            })
+            .catch(function (err) {
+                console.log('error: ' + err);
+            });
+        function appendData(data) {
+            const contain = document.getElementById("getData");
+            for (let i = 0; i < data.length; i++) {
+                const div = document.createElement("div");
+                const img = document.createElement("img");
+                div.innerHTML = 'Name: ' + data[i].name + ', Location: ' + data[i].location + ', Description: ' + data[i].description + ', Average rating: ' + data[i].averagerating;
+                contain.appendChild(div);
+                img.innerHTML = 'Image: ' + data[i].img;
+                contain.appendChild(img);
+
+
+            }
+        }
+    </script>
+
+</body>
+
+</html>
